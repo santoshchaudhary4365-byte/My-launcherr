@@ -1,15 +1,33 @@
-plugins {
-    id 'com.android.application'
+import java.io.IOException
+plugins{
+    id 'com.android.application' version '8.7.2' apply false
+    id 'com.android.library' version '8.7.2' apply false
 }
 
-android {
-    compileSdk 33
-
-    defaultConfig {
-        applicationId "com.mclauncher.app"
-        minSdk 21
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+String getGitHash(String project) {
+    def command = Runtime.getRuntime().exec("git rev-list -1 HEAD " + project)
+    def returnCode = command.waitFor()
+    if (returnCode != 0) {
+        throw new IOException("Command 'getGitHash()' exited with " + returnCode)
     }
+    String gitCommitHash = command.inputStream.text.trim()
+    return gitCommitHash
+}
+
+Boolean gitUsed() {
+    def returnCode = Runtime.getRuntime().exec("git rev-parse --is-inside-work-tree").waitFor()
+    switch(returnCode){
+        case 127:
+          println("git not found");
+          return false;
+          break;
+        case 128:
+          println("not inside a git repository");
+          return false;
+          break;
+        case 0:
+          return true;
+        default:
+          throw new IOException("Command 'gitUsed()' exited with " + returnCode)
+  }
 }
