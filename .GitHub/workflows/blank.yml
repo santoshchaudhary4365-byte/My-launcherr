@@ -24,4 +24,3 @@ jobs:
         with:
           name: Minecraft-Launcher-APK
           path: app/build/outputs/apk/debug/app-debug.apk
-          
