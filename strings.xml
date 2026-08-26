@@ -1,0 +1,19 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">My MC Launcher</string>
+
+    <!-- UI Headings & Labels -->
+    <string name="launcher_title">JAVA LAUNCHER</string>
+    <string name="launcher_subtitle">Minecraft Java Edition for Android</string>
+    <string name="label_player_name">Player Name</string>
+    <string name="hint_player_name">Enter Player Name</string>
+    <string name="label_select_version">Select Version</string>
+    
+    <!-- Dynamic Text & Buttons -->
+    <string name="default_ram_text">RAM Allocation: 2048 MB</string>
+    <string name="btn_play">PLAY GAME</string>
+
+    <!-- Toast Notifications -->
+    <string name="error_empty_username">Please enter a username first!</string>
+</resources>
+
